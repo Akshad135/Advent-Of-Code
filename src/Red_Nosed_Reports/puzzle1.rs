@@ -46,6 +46,6 @@ pub fn solve() -> io::Result<()>{
         }
     }
 
-    println!("{}", safe);
+    println!("Total safe reports: {}", safe);
     Ok(())
 }
