@@ -2,7 +2,7 @@ use std::fs::File;
 use std::io::{self,BufRead};
 
 pub fn solve() -> io::Result<()>{
-    let file_path = "Historian_Hysteria/puzzle.txt";
+    let file_path = "Historian_Hysteria/input.txt";
     let file = File::open(file_path)?;
     let reader = io::BufReader::new(file);
 
