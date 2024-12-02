@@ -9,7 +9,7 @@ pub fn solve() -> io::Result<()>{
     let mut safe = 0;
 
     for line in reader.lines(){
-        let mut current_line = line?;
+        let current_line = line?;
         let mut current_input : Vec<i32> = current_line
                                             .split_whitespace()
                                             .filter_map(|s| s.parse::<i32>().ok())
