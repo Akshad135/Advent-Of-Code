@@ -1,8 +1,10 @@
+use std::collections::HashSet;
 use std::fs::File;
 use std::io::{self,BufRead};
+use std::collections::HashMap;
 
 pub fn solve() -> io::Result<()>{
-    let file_path = "Day1/puzzle1.txt";
+    let file_path = "Historian_Hysteria/puzzle.txt";
     let file = File::open(file_path)?;
     let reader = io::BufReader::new(file);
 
@@ -20,16 +22,18 @@ pub fn solve() -> io::Result<()>{
         right.push(nums[1]);
     }
 
-    left.sort();
-    right.sort();
+    let mut countRight = HashMap::new();
 
-    let mut total = 0;
-
-    for i in 0..left.len(){
-        let diff = left[i] - right[i];
-        total += diff.abs();
+    for &num in &right{
+        *countRight.entry(num).or_insert(0) += 1;
     }
 
-    println!("{}",total);
+    let mut total = 0;
+    for &num in &left{
+        let num_score = countRight.get(&num).copied().unwrap_or(0);
+        total += num_score * num;
+    }
+    
+    println!("Similarity score is: {}",total);
     Ok(())
 }
