@@ -25,6 +25,6 @@ fn main() -> std::io::Result<()> {
     let _ = Mull_It_Over::puzzle1::solve();
     let _ = Mull_It_Over::puzzle2::solve();
 
-
+    println!();
     Ok(())
 }
